@@ -49,7 +49,7 @@ public class Targetting : MonoBehaviour {
 			} else {
 				index = 0;
 			}
-//			deselectTarget();
+			DeselectTarget();
 			selectedTarget = targets[index];			
 		}
 		SelectTarget();	
@@ -58,11 +58,15 @@ public class Targetting : MonoBehaviour {
 	private void SelectTarget (){
 		selectedTarget.renderer.material.color = Color.red;
 		
-//		playerAttack pa = (playerAttack)GetComponent ("playerAttack");
+		PlayerAttack pa = (PlayerAttack)GetComponent ("PlayerAttack");
 		
-//		pa.target = selectedTarget.gameObject;
+		pa.target = selectedTarget.gameObject;
 	}
 
+	public void DeselectTarget (){
+		selectedTarget.renderer.material.color = Color.white;
+		selectedTarget = null;
+	}
 
 	// Update is called once per frame
 	void Update () {
