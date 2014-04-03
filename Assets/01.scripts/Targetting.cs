@@ -7,16 +7,24 @@ public class Targetting : MonoBehaviour {
 	public List<Transform> targets;
 	public Transform selectedTarget;
 
+	private Transform myTransform;
 
 	// Use this for initialization
 	void Start () {
 		targets = new List<Transform> ();
 		selectedTarget = null;
-//		myTransform = transform;
+		myTransform = transform;
 		
 		AddAllEnemies();
 
 	}
+
+	private void SortTargetByDistance(){
+		targets.Sort(delegate(Transform t1, Transform t2) {
+			return Vector3.Distance(t1.position, myTransform.position).CompareTo(Vector3.Distance(t2.position, myTransform.position));
+		});
+	}
+	
 
 	public void AddAllEnemies(){
 		GameObject[] go = GameObject.FindGameObjectsWithTag ("Enemy");
@@ -31,7 +39,7 @@ public class Targetting : MonoBehaviour {
 
 	private void TargetEnemy (){
 		if (selectedTarget == null) {
-//			sortTargetByDistance ();
+			SortTargetByDistance ();
 			selectedTarget = targets [0];
 		} else {
 			int index = targets.IndexOf(selectedTarget);
@@ -42,10 +50,17 @@ public class Targetting : MonoBehaviour {
 				index = 0;
 			}
 //			deselectTarget();
-			selectedTarget = targets[index];
-			
+			selectedTarget = targets[index];			
 		}
-//		selectTarget();	
+		SelectTarget();	
+	}
+
+	private void SelectTarget (){
+		selectedTarget.renderer.material.color = Color.red;
+		
+//		playerAttack pa = (playerAttack)GetComponent ("playerAttack");
+		
+//		pa.target = selectedTarget.gameObject;
 	}
 
 
