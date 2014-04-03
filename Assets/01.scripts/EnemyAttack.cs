@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerAttack : MonoBehaviour {
-	
+public class EnemyAttack : MonoBehaviour {
+
 	public GameObject target;
 	public float attackTimer;
 	public float coolDown;
@@ -22,11 +22,9 @@ public class PlayerAttack : MonoBehaviour {
 		if (attackTimer < 0)
 			attackTimer = 0;
 		
-		if (Input.GetKeyUp (KeyCode.F)) {
-			if (attackTimer == 0){
-				Attack();
-				attackTimer = coolDown;
-			}
+		if (attackTimer == 0){
+			Attack();
+			attackTimer = coolDown;
 		}
 		
 	}
@@ -41,7 +39,7 @@ public class PlayerAttack : MonoBehaviour {
 		Debug.Log(direction);
 		
 		if (distance < 2.5f & direction > 0) {
-			EnemyHealth eh = (EnemyHealth)target.GetComponent("EnemyHealth");
+			PlayerHealth eh = (PlayerHealth)target.GetComponent ("PlayerHealth");
 			eh.AddjustCurrentHealth (-10);
 		}
 	}
