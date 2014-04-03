@@ -30,9 +30,9 @@ public class EnemyAI : MonoBehaviour {
 		// Look at target
 		myTransform.rotation = Quaternion.Slerp (myTransform.rotation, Quaternion.LookRotation (target.position - myTransform.position), rotationSpeed * Time.deltaTime);
 		
-//		if (Vector3.Distance (target.position, myTransform.position) > maxDistance) {
+		if (Vector3.Distance (target.position, myTransform.position) > maxDistance) {
 			// Move towards target
 			myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
-//		}
+		}
 	}
 }
