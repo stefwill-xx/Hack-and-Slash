@@ -40,8 +40,7 @@ public class CharacterGenerator : MonoBehaviour {
 			_toon.GetPrimaryAttribute(cnt).BaseValue = STARTING_VALUE;
 			pointsLeft -= (STARTING_VALUE - MIN_STARTING_ATTRIBUTE_VALUE);
 		}
-		_toon.StatUpdate();
-		
+		_toon.StatUpdate();		
 	}
 	
 	// Update is called once per frame
