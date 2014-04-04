@@ -22,7 +22,7 @@ public class CharacterGenerator : MonoBehaviour {
 	
 	public GUISkin mySkin;
 	
-//	public GameObject playerPrefab;
+	public GameObject playerPrefab;
 	
 	// Use this for initialization
 	void Start () {
