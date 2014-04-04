@@ -60,7 +60,7 @@ public class BaseCharacter : MonoBehaviour {
 		for(int cnt = 0; cnt < _vital.Length; cnt++)
 			_vital[cnt] = new Vital();
 		
-		setupVitalModifiers ();
+		SetupVitalModifiers ();
 		
 	}
 	
@@ -68,7 +68,7 @@ public class BaseCharacter : MonoBehaviour {
 		for(int cnt = 0; cnt < _skill.Length; cnt++)
 			_skill[cnt] = new Skill();
 
-		setupSkillModifiers ();
+		SetupSkillModifiers ();
 	}	
 	
 	public Attribute GetPrimaryAttribute (int index) {
@@ -96,7 +96,7 @@ public class BaseCharacter : MonoBehaviour {
 	}
 	
 	private void SetupSkillModifiers(){
-		// Melee Offence
+		// Melee ffence
 		GetSkill((int)SkillName.Melee_Offence).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Might), .33f));
 		GetSkill((int)SkillName.Melee_Offence).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Nimbleness), .33f));
 		
