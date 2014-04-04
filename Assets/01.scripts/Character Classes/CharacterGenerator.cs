@@ -30,10 +30,8 @@ public class CharacterGenerator : MonoBehaviour {
 		GameObject pc = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 		
 		pc.name = "pc";
-		
-//		_toon = new PlayerCharacter();
+
 		_toon = pc.GetComponent<PlayerCharacter>();
-		_toon.Awake();
 		
 		pointsLeft = STARTING_POINTS;
 		
@@ -57,8 +55,11 @@ public class CharacterGenerator : MonoBehaviour {
 		DisplayAttributes();
 		DisplayVitals();
 		DisplaySkills();
-		
-		DisplayCreateButton();
+
+		if (_toon.Name == "" || pointsLeft > 0) 
+			DisplayCreateLabel();
+		else
+			DisplayCreateButton();
 	}
 	
 	private void DisplayName() {
@@ -131,6 +132,15 @@ public class CharacterGenerator : MonoBehaviour {
 		GUI.Label(new Rect (250, 10, 100, 25), "Points left: " + pointsLeft.ToString());
 	}
 
+	private void DisplayCreateLabel(){
+		GUI.Label(new Rect(Screen.width / 2 - 50, 														// x
+		                   statStartingPos + (10 * LINE_HEIGHT), 										// y
+		                   STAT_LABEL_WIDTH, 															// width	
+		                   LINE_HEIGHT																	// height
+		                  ), "Creating", "Button");
+
+	}
+
 	private void DisplayCreateButton(){
 		if(GUI.Button(new Rect(Screen.width / 2 - 50, 													// x
 		                    statStartingPos + (10 * LINE_HEIGHT), 										// y
@@ -141,13 +151,17 @@ public class CharacterGenerator : MonoBehaviour {
 			GameSettings gsScript = GameObject.Find("__GameSettings").GetComponent<GameSettings>();
 
 			// Change the current value of the vitals to the max modified value of that vital
-
+			UpdateCurVitalValues();
 
 			gsScript.saveCharacterData();
 
 			Application.LoadLevel("Targetting Example");
 		}
+	}
 
-
+	private void UpdateCurVitalValues(){
+		for(int cnt = 0; cnt < System.Enum.GetValues(typeof(VitalName).UnderlyingSystemType).Length; cnt++) {
+			_toon.GetVital(cnt).CurValue = _toon.GetVital(cnt).AdjustedBaseValue;
+		}
 	}
 }
