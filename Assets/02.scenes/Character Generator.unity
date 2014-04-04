@@ -166,3 +166,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c444405e81cb492bb40c974385c88fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mySkin: {fileID: 11400000, guid: 351a967cc1c6a46a7856a1b0091b2e9f, type: 2}

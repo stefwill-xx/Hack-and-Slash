@@ -20,7 +20,7 @@ public class CharacterGenerator : MonoBehaviour {
 	
 	private int statStartingPos = 40;
 	
-//	public GUISkin mySkin;
+	public GUISkin mySkin;
 	
 //	public GameObject playerPrefab;
 	
@@ -49,7 +49,7 @@ public class CharacterGenerator : MonoBehaviour {
 	}
 	
 	void OnGUI () {
-//		GUI.skin = mySkin;
+		GUI.skin = mySkin;
 		
 		DisplayName();
 		DisplayPointsLeft();
