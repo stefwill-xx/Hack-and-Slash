@@ -137,6 +137,10 @@ public class CharacterGenerator : MonoBehaviour {
 		                    LINE_HEIGHT																	// height
 		                    ), "Create"))
 		{
+			GameSettings gsScript = GameObject.Find("__GameSettings").GetComponent<GameSettings>();
+
+			gsScript.saveCharacterData();
+
 			Application.LoadLevel("Targetting Example");
 		}
 
