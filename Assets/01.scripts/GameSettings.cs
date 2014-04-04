@@ -21,7 +21,7 @@ public class GameSettings : MonoBehaviour {
 		GameObject pc = GameObject.Find("pc");
 		
 		PlayerCharacter pcClass = pc.GetComponent<PlayerCharacter>();
-		PlayerPrefs.SetString("Player Name", pcClass.name);
+		PlayerPrefs.SetString("Player Name", pcClass.Name);
 		
 	}
 	
