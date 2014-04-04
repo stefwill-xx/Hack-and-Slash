@@ -65,6 +65,7 @@ public class CharacterGenerator : MonoBehaviour {
 		GUI.Label(new Rect(10, 10, 50, 25), "Name:");
 		_toon.Name = GUI.TextField(new Rect(115, 10, 100, 25), _toon.Name);
 	}
+
 	private void DisplayAttributes() {
 		for(int cnt = 0; cnt < Enum.GetValues(typeof(AttributeName)).Length; cnt++) {
 			GUI.Label(new Rect(OFFSET, 																	// x
@@ -138,6 +139,9 @@ public class CharacterGenerator : MonoBehaviour {
 		                    ), "Create"))
 		{
 			GameSettings gsScript = GameObject.Find("__GameSettings").GetComponent<GameSettings>();
+
+			// Change the current value of the vitals to the max modified value of that vital
+
 
 			gsScript.saveCharacterData();
 
