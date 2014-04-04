@@ -1,10 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/01.scripts/Character Classes/ModifiedStat.cs">
     <Files>
+      <File FileName="Assets/01.scripts/Character Classes/ModifiedStat.cs" Line="26" Column="16" />
       <File FileName="Assets/01.scripts/Character Classes/BaseStat.cs" Line="38" Column="46" />
-      <File FileName="Assets/01.scripts/Character Classes/Attribute.cs" Line="16" Column="10" />
-      <File FileName="Assets/01.scripts/Character Classes/ModifiedStat.cs" Line="21" Column="55" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
